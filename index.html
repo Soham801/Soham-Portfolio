@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soham Deshmukh | AI Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Soham Deshmukh, AI Engineer specializing in Computer Vision, LLM Applications, and Agentic AI workflows.">
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%2309090B%22/><circle cx=%2250%22 cy=%2250%22 r=%2215%22 fill=%22%2322D3EE%22/><circle cx=%2250%22 cy=%2250%22 r=%2230%22 stroke=%22%238B5CF6%22 stroke-width=%226%22 fill=%22none%22/></svg>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soham.ai/">
+    <meta property="og:title" content="Soham Deshmukh | AI Engineer Portfolio">
+    <meta property="og:description" content="Portfolio of Soham Deshmukh, AI Engineer specializing in Computer Vision, LLM Applications, and Agentic AI workflows.">
+    <meta property="og:image" content="https://soham.ai/assets/images/rag_assistant.webp">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://soham.ai/">
+    <meta property="twitter:title" content="Soham Deshmukh | AI Engineer Portfolio">
+    <meta property="twitter:description" content="Portfolio of Soham Deshmukh, AI Engineer specializing in Computer Vision, LLM Applications, and Agentic AI workflows.">
+    <meta property="twitter:image" content="https://soham.ai/assets/images/rag_assistant.webp">
+
+    <!-- Search Engine Indexing -->
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://soham.ai/">
+
+    <!-- Google Fonts: Lora (Serif) & Inter (Sans-serif) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="console-mode">
+    <!-- Global Interactive Canvas for Neural Background -->
+    <canvas id="neural-canvas" aria-hidden="true"></canvas>
+
+    <!-- Cursor Spotlight Dynamic Glow Layer -->
+    <div id="cursor-spotlight" aria-hidden="true"></div>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#hero-main" class="skip-link">Skip to main content</a>
+
+    <!-- Command HUD Navigation -->
+    <header class="hud-header" role="banner">
+        <div class="hud-container">
+            <div class="hud-brand">
+                <span class="brand-title">SOHAM.AI</span>
+                <span class="brand-divider">//</span>
+                <span class="brand-status" aria-label="System status active">
+                    <span class="pulse-indicator"></span>
+                    BUILD_V4.26
+                </span>
+            </div>
+            <nav class="hud-nav" role="navigation" aria-label="Main menu">
+                <ul class="nav-list">
+                    <li><a href="#playground" class="nav-link active" aria-current="page">[01 // PLAYGROUND]</a></li>
+                    <li><a href="#logs" class="nav-link">[02 // LOGS]</a></li>
+                    <li><a href="#about" class="nav-link">[03 // ABOUT]</a></li>
+                    <li><a href="#contact" class="nav-link">[04 // CONNECT]</a></li>
+                </ul>
+            </nav>
+            <div class="hud-actions">
+                <a href="Soham-Resume-June-V4.pdf" class="btn btn-outline" download aria-label="Download Soham's PDF Resume">
+                    [Download PDF <span class="arrow-down">📥</span>]
+                </a>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Switch to Executive Print Mode" title="Toggle Executive/Console Mode">
+                    <span class="toggle-track">
+                        <span class="toggle-thumb"></span>
+                    </span>
+                    <span class="toggle-label" aria-hidden="true">CONSOLE</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main id="hero-main" role="main" class="hero-wrapper">
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="hero-grid">
+                <!-- Left Column: Typography and Primary CTA -->
+                <div class="hero-content">
+                    <div class="badge-container">
+                        <div class="tag-badge" aria-label="Specialization">
+                            <span class="tag-dot"></span>
+                            AI BUILDER // CS STUDENT
+                        </div>
+                    </div>
+                    
+                    <h1 id="hero-title" class="hero-heading">
+                        Building AI applications that <span class="text-gradient">solve real-world problems</span>.
+                    </h1>
+                    
+                    <p class="hero-description">
+                        I'm a Computer Science student focused on building practical AI systems—from computer vision tools that proctor exams to intelligent search agents. I love turning machine learning concepts into functional, hands-on software that solves real-world needs. Currently, I'm looking for opportunities where I can help build and deploy intelligent applications.
+                    </p>
+
+                    <div class="cta-group">
+                        <button id="cta-initialize" class="btn btn-primary" aria-label="Explore interactive projects playground">
+                            <span class="btn-text">EXPLORE_PROJECTS ➔</span>
+                        </button>
+                        <a href="#contact" class="btn btn-secondary" aria-label="Contact Soham direct get in touch channel">
+                            <span>GET_IN_TOUCH</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Glassmorphic Console -->
+                <div class="hero-visual">
+                    <div class="glass-console" role="region" aria-label="System diagnostic log console">
+                        <div class="console-header">
+                            <div class="console-controls">
+                                <span class="dot-red" aria-hidden="true"></span>
+                                <span class="dot-yellow" aria-hidden="true"></span>
+                                <span class="dot-green" aria-hidden="true"></span>
+                            </div>
+                            <div class="console-title" aria-hidden="true">soham@ai:~/diagnostics</div>
+                            <div class="console-status-indicator">
+                                <span class="status-indicator-dot animate-pulse"></span>
+                                LIVE
+                            </div>
+                        </div>
+                        <div class="console-body">
+                            <div class="console-line line-header" aria-hidden="true">
+                                <span class="user-prompt">soham@ai:~$</span> initialize --system-check
+                            </div>
+                            <div class="console-log-area" id="log-output" role="log" aria-live="polite">
+                                <!-- Dynamically typed logs go here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 02: About Section (Story Deck) -->
+        <section id="about" class="about-section scroll-reveal" aria-labelledby="about-title">
+            <div class="about-header">
+                <div class="tag-badge">
+                    <span class="tag-dot"></span>
+                    CORE DIAGNOSTICS
+                </div>
+                <h2 id="about-title" class="about-heading">
+                    The Story <span class="text-gradient">So Far</span>
+                </h2>
+            </div>
+            
+            <div class="about-grid">
+                <!-- Left: The Narrative Journey Card -->
+                <div class="bento-card card-spotlight narrative-journey-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <span class="card-num">01 //</span>
+                        <h3 class="card-title">THE JOURNEY ARCHITECTURE</h3>
+                    </div>
+                    <div class="narrative-content">
+                        <p class="narrative-paragraph">
+                            My engagement with software began as a raw curiosity about how digital systems function, which led me to dive deep into learning <strong>Python and backend development</strong>. As I built foundational tools, I became fascinated by how logic could adapt dynamically, prompting my transition into <strong>AI and Machine Learning</strong>.
+                        </p>
+                        <p class="narrative-paragraph">
+                            Rather than studying algorithms in a vacuum, I focused on building <strong>real-world AI applications</strong>. To validate my engineering velocity under constraints, I tested myself at high-pressure national <strong>hackathons</strong>, leading teams to championship wins and national top placements.
+                        </p>
+                        <p class="narrative-paragraph">
+                            Applying these methodologies in the industry, I completed <strong>internships</strong> as an AI Research Analyst at BuildAI—optimizing deep learning pipelines—and as a Flutter developer at MeMatdar. Today, my engineering focus is entirely dedicated to orchestrating robust <strong>Agentic AI networks</strong> and shipping high-performance production AI systems.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Chronology Index & Statistics Bento Card -->
+                <div class="bento-card card-spotlight chronology-stats-card">
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <span class="card-num">02 //</span>
+                        <h3 class="card-title">CHRONOLOGY & IMPACT</h3>
+                    </div>
+                    
+                    <div class="card-stats compact-stats">
+                        <div class="stat-item">
+                            <div class="stat-num-container">
+                                <span class="stat-number">32</span><span class="stat-unit">nd</span>
+                            </div>
+                            <span class="stat-label">National Rank</span>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-num-container">
+                                <span class="stat-number" data-target="4">0</span>
+                            </div>
+                            <span class="stat-label">Companies Automated</span>
+                        </div>
+                    </div>
+
+                    <div class="mini-timeline">
+                        <div class="timeline-event">
+                            <span class="event-date">MAR 2026 – MAY 2026</span>
+                            <h4 class="event-title">BuildAI // AI Research Analyst</h4>
+                            <span class="event-desc">Optimized inference pipelines and automated operational workflows.</span>
+                        </div>
+                        <div class="timeline-event">
+                            <span class="event-date">OCT 2025 – JAN 2026</span>
+                            <h4 class="event-title">MeMatdar Developers // Flutter Intern</h4>
+                            <span class="event-desc">Built clean-architecture mobile sync clients.</span>
+                        </div>
+                        <div class="timeline-event">
+                            <span class="event-date">2023 – 2027 (EXPECTED)</span>
+                            <h4 class="event-title">MGM University // BSc CS (Hons)</h4>
+                            <span class="event-desc">Deep learning algorithms & computer vision analytics.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Redesigned Skills Section: Technical Skills Matrix -->
+            <div class="skills-matrix-container scroll-reveal">
+                <div class="skills-subheader">
+                    <div class="tag-badge">
+                        <span class="tag-dot"></span>
+                        TECHNICAL INVENTORY
+                    </div>
+                    <h3 class="skills-section-title">Technical <span class="text-gradient">Skills Matrix</span></h3>
+                </div>
+
+                <div class="skills-categories-grid">
+                    <!-- Category 1: AI & ML -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">AI & Machine Learning</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">Computer Vision</span>
+                            <span class="skill-chip">LLM Applications</span>
+                            <span class="skill-chip">Agentic AI</span>
+                            <span class="skill-chip">Deep Learning</span>
+                            <span class="skill-chip">Neural Networks</span>
+                            <span class="skill-chip">RAG Pipelines</span>
+                            <span class="skill-chip">Langchain</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: Programming Languages -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">Programming Languages</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip highlight-chip">Python</span>
+                            <span class="skill-chip">Dart</span>
+                            <span class="skill-chip">C++</span>
+                            <span class="skill-chip">SQL</span>
+                            <span class="skill-chip">JavaScript</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 3: Frameworks -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">Frameworks</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">PyTorch</span>
+                            <span class="skill-chip">OpenCV</span>
+                            <span class="skill-chip">Hugging Face</span>
+                            <span class="skill-chip">FastAPI</span>
+                            <span class="skill-chip">Flask</span>
+                            <span class="skill-chip">Flutter</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 4: Databases -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">Databases</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">Qdrant (Vector DB)</span>
+                            <span class="skill-chip">Firebase</span>
+                            <span class="skill-chip">Supabase</span>
+                            <span class="skill-chip">PostgreSQL</span>
+                            <span class="skill-chip">NoSQL</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 5: Tools & Platforms -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">Tools & Platforms</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">Git / GitHub</span>
+                            <span class="skill-chip">Postman</span>
+                            <span class="skill-chip">REST APIs</span>
+                            <span class="skill-chip">Android SDK</span>
+                            <span class="skill-chip">Linux CLI</span>
+                        </div>
+                    </div>
+
+                    <!-- Category 6: Cloud & DevOps -->
+                    <div class="skills-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <h4 class="skills-category-title">Cloud & DevOps</h4>
+                        <div class="skills-chips-wrapper">
+                            <span class="skill-chip">Google Cloud</span>
+                            <span class="skill-chip">Docker</span>
+                            <span class="skill-chip">CI / CD</span>
+                            <span class="skill-chip">GCP Vertex AI</span>
+                            <span class="skill-chip">Hugging Face Spaces</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 03: Projects Showcase -->
+        <section id="playground" class="projects-section scroll-reveal" aria-labelledby="projects-title">
+            <div class="projects-header">
+                <div class="tag-badge">
+                    <span class="tag-dot"></span>
+                    DEPLOYED REPOSITORIES
+                </div>
+                <h2 id="projects-title" class="projects-heading">
+                    Engineered <span class="text-gradient">AI Solutions</span>
+                </h2>
+            </div>
+
+            <div class="projects-list">
+                <!-- Project 1: Cheat Detection System -->
+                <article class="project-card" data-project="cheat-detection">
+                    <div class="project-layout">
+                        <!-- Left: Visual Mockup & Pipeline -->
+                        <div class="project-visual">
+                            <div class="image-wrapper">
+                                <img src="assets/images/cheat_detection.webp" alt="AI Cheat Detection Dashboard Interface Mockup" class="project-img" loading="lazy" decoding="async" width="520" height="290">
+                                <div class="floating-code" aria-hidden="true">
+                                    <code>cv2.VideoCapture(stream_url)</code>
+                                    <code>model.predict(gaze_vectors)</code>
+                                    <code>FPS: 30 // Latency: 45ms</code>
+                                </div>
+                            </div>
+                            
+                            <!-- Interactive Pipeline Diagram -->
+                            <div class="interactive-diagram" aria-label="Cheat Detector System pipeline diagram">
+                                <span class="diagram-label">INFRASTRUCTURE PIPELINE (HOVER TO ACTIVATE)</span>
+                                <div class="pipeline-flow">
+                                    <div class="pipeline-node active" data-node="input">
+                                        <span class="node-icon">📹</span>
+                                        <span class="node-text">RTSP Stream</span>
+                                        <div class="node-tooltip">Raw 1080p continuous video frames captured at 30 FPS</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="cv">
+                                        <span class="node-icon">👁️</span>
+                                        <span class="node-text">OpenCV Process</span>
+                                        <div class="node-tooltip">Frame pre-processing, resizing, and normalizing for PyTorch inputs</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="model">
+                                        <span class="node-icon">🧠</span>
+                                        <span class="node-text">YOLO/PyTorch</span>
+                                        <div class="node-tooltip">Deep learning inference detecting student gaze vectors & body poses</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="alert">
+                                        <span class="node-icon">🚨</span>
+                                        <span class="node-text">Inference Node</span>
+                                        <div class="node-tooltip">Detects suspicious behavior anomalies with 90%+ accuracy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Narrative & Specs -->
+                        <div class="project-narrative">
+                            <span class="project-num">PROJECT_01 // CV_DECK</span>
+                            <h3 class="project-title">AI-Based Cheat Detection System</h3>
+                            
+                            <div class="project-tech-badges">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">OpenCV</span>
+                                <span class="tech-badge">PyTorch</span>
+                                <span class="tech-badge">Streamlit</span>
+                            </div>
+
+                            <div class="story-grid">
+                                <div class="story-block">
+                                    <h4>THE BOTTLENECK</h4>
+                                    <p>Online invigilation requires extensive manual proctoring overhead, frequently missing micro-gestures and leading to high human error rates.</p>
+                                </div>
+                                <div class="story-block">
+                                    <h4>THE INTERVENTION</h4>
+                                    <p>Built a real-time behavioral monitoring system processing RTSP video streams on standard client edge GPUs, avoiding heavy server hosting latency.</p>
+                                </div>
+                            </div>
+
+                             <div class="metrics-dashboard">
+                                 <div class="metric-card">
+                                     <span class="metric-val">90.2%</span>
+                                     <span class="metric-label">Evaluation Precision</span>
+                                 </div>
+                                 <div class="metric-card">
+                                     <span class="metric-val">&lt; 45ms</span>
+                                     <span class="metric-label">Inference Latency</span>
+                                 </div>
+                             </div>
+
+                             <details class="expandable-spec">
+                                 <summary class="spec-summary">VIEW ARCHITECTURE CODE SPECIFICATION</summary>
+                                 <div class="spec-content">
+                                     <p>Loads optimized TensorRT engines onto target CUDA execution runtimes. Calculates head orientation vectors and skeletal shoulder similarity values to detect proctor anomalies.</p>
+                                     <pre><code># TensorRT-Optimized Gaze & Skeleton Pose Pipeline
+import tensorrt as trt
+import numpy as np
+
+class ProctorInferenceEngine:
+    def __init__(self, engine_path):
+        self.logger = trt.Logger(trt.Logger.WARNING)
+        self.runtime = trt.Runtime(self.logger)
+        with open(engine_path, "rb") as f:
+            self.engine = self.runtime.deserialize_cuda_engine(f.read())
+        self.context = self.engine.create_execution_context()
+
+    def analyze_gaze_vectors(self, facial_landmarks, skeletal_joints):
+        left_eye, right_eye = facial_landmarks[36:42], facial_landmarks[42:48]
+        nose_bridge = facial_landmarks[27:31]
+        head_pose = np.cross(left_eye[0] - right_eye[3], nose_bridge[0] - nose_bridge[-1])
+        gaze_angle = np.dot(head_pose, skeletal_joints["shoulder_center"]) / (
+            np.linalg.norm(head_pose) * np.linalg.norm(skeletal_joints["shoulder_center"])
+        )
+        return float(gaze_angle > 0.82) # Anomaly boundary flag</code></pre>
+                                 </div>
+                             </details>
+
+                            <div class="project-actions">
+                                <a href="https://github.com/Soham801/AI-cheat-detector" class="btn btn-outline" target="_blank" aria-label="Open Cheat Detector Github repository">
+                                    <span>OPEN_SOURCE_REPO_GIT ➔</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: RAG Notes Assistant -->
+                <article class="project-card" data-project="rag-notes">
+                    <div class="project-layout">
+                        <!-- Left: Visual Mockup & Pipeline -->
+                        <div class="project-visual">
+                            <div class="image-wrapper">
+                                <img src="assets/images/rag_assistant.webp" alt="RAG Notes Assistant Interface Mockup" class="project-img" loading="lazy" decoding="async" width="520" height="290">
+                                <div class="floating-code" aria-hidden="true">
+                                    <code>client.upsert(collection, vectors)</code>
+                                    <code>gemini.generate_content(prompt)</code>
+                                    <code>Latency: &lt;1.0s // Recall: 95%</code>
+                                </div>
+                            </div>
+                            
+                            <!-- Interactive Pipeline Diagram -->
+                            <div class="interactive-diagram" aria-label="RAG Assistant pipeline diagram">
+                                <span class="diagram-label">VECTOR PIPELINE (HOVER TO ACTIVATE)</span>
+                                <div class="pipeline-flow">
+                                    <div class="pipeline-node active" data-node="doc">
+                                        <span class="node-icon">📄</span>
+                                        <span class="node-text">PDF Upload</span>
+                                        <div class="node-tooltip">Extracts raw text data from multi-document PDFs using PyPDF</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="embed">
+                                        <span class="node-icon">🔢</span>
+                                        <span class="node-text">Embeddings</span>
+                                        <div class="node-tooltip">Transforms text chunks into 384-dim semantic vector floats</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="qdrant">
+                                        <span class="node-icon">🗄️</span>
+                                        <span class="node-text">Qdrant DB</span>
+                                        <div class="node-tooltip">Saves vectors for ultra-fast cosine similarity lookups</div>
+                                    </div>
+                                    <div class="pipeline-connector">➔</div>
+                                    <div class="pipeline-node" data-node="gemini">
+                                        <span class="node-icon">✨</span>
+                                        <span class="node-text">Gemini LLM</span>
+                                        <div class="node-tooltip">Synthesizes extracted text chunks into conversational answers</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Narrative & Specs -->
+                        <div class="project-narrative">
+                            <span class="project-num">PROJECT_02 // AGENT_DECK</span>
+                            <h3 class="project-title">AI-Powered RAG Notes Assistant</h3>
+                            
+                            <div class="project-tech-badges">
+                                <span class="tech-badge">FastAPI</span>
+                                <span class="tech-badge">Qdrant</span>
+                                <span class="tech-badge">Gemini API</span>
+                                <span class="tech-badge">Sentence Transformers</span>
+                            </div>
+
+                            <div class="story-grid">
+                                <div class="story-block">
+                                    <h4>THE BOTTLENECK</h4>
+                                    <p>Retrieving specific information from massive educational PDFs and notes takes students hours of manual indexing and paging.</p>
+                                </div>
+                                <div class="story-block">
+                                    <h4>THE INTERVENTION</h4>
+                                    <p>Engineered an end-to-end Retrieval-Augmented Generation (RAG) system utilizing sentence embeddings and vector search to locate text coordinates instantly.</p>
+                                </div>
+                            </div>
+
+                            <div class="metrics-dashboard">
+                                <div class="metric-card">
+                                    <span class="metric-val">95.4%</span>
+                                    <span class="metric-label">Retrieval Recall (Hit Rate)</span>
+                                </div>
+                                <div class="metric-card">
+                                    <span class="metric-val">&lt; 0.8s</span>
+                                    <span class="metric-label">End-to-End Latency</span>
+                                </div>
+                            </div>
+
+                            <details class="expandable-spec">
+                                <summary class="spec-summary">VIEW VECTOR SEARCH SPECIFICATION</summary>
+                                <div class="spec-content">
+                                    <p>Splits documents recursively with token overlapping, indices embeddings in local Qdrant collections, and re-ranks top hits using MiniLM cross-encoders.</p>
+                                    <pre><code># Multi-Document RAG with Qdrant Hybrid Search & Re-ranking
+from qdrant_client import QdrantClient
+from sentence_transformers import CrossEncoder
+
+class AdvancedRAGPipeline:
+    def __init__(self):
+        self.db = QdrantClient("http://localhost:6333")
+        self.reranker = CrossEncoder("cross-encoder/ms-marco-MiniLM-L-6-v2")
+
+    def query_vectors_with_rerank(self, query_str, top_k=15):
+        candidates = self.db.search(
+            collection_name="notes_collection",
+            query_vector=self.encode_query(query_str),
+            limit=top_k
+        )
+        pairs = [[query_str, c.payload["text_content"]] for c in candidates]
+        scores = self.reranker.predict(pairs)
+        ranked = sorted(zip(candidates, scores), key=lambda x: x[1], reverse=True)
+        return [doc[0].payload for doc in ranked[:3]] # Return top 3 candidates</code></pre>
+                                </div>
+                            </details>
+
+                            <div class="project-actions">
+                                <a href="https://github.com/Soham801/RAG-Notes-Assistant" class="btn btn-outline" target="_blank" aria-label="Open RAG Notes Assistant Github repository">
+                                    <span>OPEN_SOURCE_REPO_GIT ➔</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Other Projects Section (Bento Grid Layout) -->
+            <div class="secondary-projects-container scroll-reveal">
+                <div class="secondary-projects-header">
+                    <h3 class="secondary-section-title">Other <span class="text-gradient">Projects Directory</span></h3>
+                </div>
+
+                <div class="secondary-projects-grid" id="secondary-projects-grid">
+                    <!-- Project 1: Discord Bot -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[SYSTEM // AGENT]</span>
+                            <span class="sec-project-icon">🤖</span>
+                        </div>
+                        <h4 class="sec-project-title">AI Automation Discord Bot</h4>
+                        <p class="sec-project-description">Event-driven automation bot handling 1,000+ commands daily with task routing.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">FastAPI</span>
+                            <span class="sec-tech-tag">Discord API</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Discord-bot" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Discord Bot GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 2: Intelligent Auto Form Filler -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[LLM // OCR]</span>
+                            <span class="sec-project-icon">📄</span>
+                        </div>
+                        <h4 class="sec-project-title">Intelligent Auto Form Filler</h4>
+                        <p class="sec-project-description">Document processor extracting scan data using OCR and LLMs to populate database targets.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">FastAPI</span>
+                            <span class="sec-tech-tag">OCR</span>
+                            <span class="sec-tech-tag">LLM</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Intelligent-Form-AutoFiller" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Auto Form Filler GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 3: NyayaLens -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[GSC // MVP]</span>
+                            <span class="sec-project-icon">⚖️</span>
+                        </div>
+                        <h4 class="sec-project-title">NyayaLens</h4>
+                        <p class="sec-project-description">Google Solution Challenge project delivering legal awareness and rights retrieval MVP.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Flutter</span>
+                            <span class="sec-tech-tag">Dart</span>
+                            <span class="sec-tech-tag">Firebase</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Nyayalens_MVP_GSC2026" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open NyayaLens GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 4: Krushi Sahayak -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[PORTAL // AGRI]</span>
+                            <span class="sec-project-icon">🌱</span>
+                        </div>
+                        <h4 class="sec-project-title">Krushi Sahayak</h4>
+                        <p class="sec-project-description">Welfare scheme awareness portal connecting rural farmers to government policies.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">HTML</span>
+                            <span class="sec-tech-tag">CSS</span>
+                            <span class="sec-tech-tag">JavaScript</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Krushi-Sahayak" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Krushi Sahayak GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 5: SafeSurf -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[SECURITY // TOOL]</span>
+                            <span class="sec-project-icon">🛡️</span>
+                        </div>
+                        <h4 class="sec-project-title">SafeSurf</h4>
+                        <p class="sec-project-description">Cybersecurity awareness toolkit demonstrating risk prevention and threat analytics.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">TKinter</span>
+                            <span class="sec-tech-tag">Network</span>
+                        </div>
+                        <a href="https://github.com/Soham801/SafeSurf" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open SafeSurf GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 6: Perplexity Clone -->
+                    <div class="secondary-project-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[NLP // SEARCH]</span>
+                            <span class="sec-project-icon">🔍</span>
+                        </div>
+                        <h4 class="sec-project-title">Perplexity Clone</h4>
+                        <p class="sec-project-description">Conversational web-search indexing interface powered by LLM integrations.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">FastAPI</span>
+                            <span class="sec-tech-tag">Gemini API</span>
+                        </div>
+                        <a href="https://github.com/Soham801/perplexity-clone" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Perplexity Clone GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- COLLAPSED SEGMENT -->
+                    <!-- Project 7: Flutter Chatbot -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[APP // CHAT]</span>
+                            <span class="sec-project-icon">💬</span>
+                        </div>
+                        <h4 class="sec-project-title">Flutter Chatbot</h4>
+                        <p class="sec-project-description">Cross-platform chatbot application client communicating with cloud-hosted AI APIs.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Flutter</span>
+                            <span class="sec-tech-tag">Dart</span>
+                            <span class="sec-tech-tag">API Link</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Flutter-Chatbot" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Flutter Chatbot GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 8: Flutter Widgets -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[APP // UI]</span>
+                            <span class="sec-project-icon">🧩</span>
+                        </div>
+                        <h4 class="sec-project-title">Flutter Widgets Library</h4>
+                        <p class="sec-project-description">Curated set of custom animated cross-platform UI widgets built in Dart.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Flutter</span>
+                            <span class="sec-tech-tag">Dart</span>
+                            <span class="sec-tech-tag">Material 3</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Flutter_Widgets" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Flutter Widgets GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 9: Blinkit UI Clone -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[APP // CLONE]</span>
+                            <span class="sec-project-icon">🛒</span>
+                        </div>
+                        <h4 class="sec-project-title">Blinkit UI Clone</h4>
+                        <p class="sec-project-description">High-fidelity replicative clone of Blinkit e-commerce interface screens.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Flutter</span>
+                            <span class="sec-tech-tag">Dart</span>
+                            <span class="sec-tech-tag">BLoC Pattern</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Blinkit_UI_Clone" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Blinkit UI Clone GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 10: WhatsApp Automation Tool -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[AUTOMATION // WEB]</span>
+                            <span class="sec-project-icon">📲</span>
+                        </div>
+                        <h4 class="sec-project-title">WhatsApp Automation Tool</h4>
+                        <p class="sec-project-description">Selenium/Webdriver utility orchestrating automated batch messages dispatch loops.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">Selenium</span>
+                            <span class="sec-tech-tag">Scripting</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Python-Projects/blob/main/WhatsappAutomation.py" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open WhatsApp Automation Tool script link">
+                            <span>script_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 11: Python Music Player -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[APP // DESKTOP]</span>
+                            <span class="sec-project-icon">🎵</span>
+                        </div>
+                        <h4 class="sec-project-title">Python Music Player</h4>
+                        <p class="sec-project-description">Local desktop audio stream manager with controls, list indexing, and library parsing.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">Pygame</span>
+                            <span class="sec-tech-tag">Tkinter</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Python-Music-Player" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Python Music Player GitHub repo">
+                            <span>repo_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 12: Cafe Management System -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[SYSTEM // RETAIL]</span>
+                            <span class="sec-project-icon">☕</span>
+                        </div>
+                        <h4 class="sec-project-title">Cafe Management System</h4>
+                        <p class="sec-project-description">Local billing, sales ledger, database updates, and menu item tracking utility.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">File IO</span>
+                            <span class="sec-tech-tag">Console DB</span>
+                        </div>
+                        <a href="https://github.com/Soham801/Python-Projects/blob/main/CafeManagement.py" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Cafe Management System script link">
+                            <span>script_git ➔</span>
+                        </a>
+                    </div>
+
+                    <!-- Project 13: Rent Calculator & RPS Game -->
+                    <div class="secondary-project-card card-spotlight collapsed-project hidden">
+                        <div class="card-glow"></div>
+                        <div class="sec-project-header">
+                            <span class="sec-project-category">[UTILITY // GAME]</span>
+                            <span class="sec-project-icon">🔢</span>
+                        </div>
+                        <h4 class="sec-project-title">Rent Calc & RockPaperScissors</h4>
+                        <p class="sec-project-description">Script utilities performing math allocation calculations and game logical evaluation loops.</p>
+                        <div class="sec-project-tech">
+                            <span class="sec-tech-tag">Python</span>
+                            <span class="sec-tech-tag">Calculations</span>
+                            <span class="sec-tech-tag">Logics</span>
+                        </div>
+                        <div class="sec-multi-links">
+                            <a href="https://github.com/Soham801/Python-Projects/blob/main/RentCalculator.py" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open Rent Calculator script link">
+                                <span>rent_git ➔</span>
+                            </a>
+                            <a href="https://github.com/Soham801/Python-Projects/blob/main/RockPaperScissorGAME.py" class="sec-project-link btn btn-outline" target="_blank" aria-label="Open RPS Game script link">
+                                <span>rps_git ➔</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bento grid expand trigger button -->
+                <div class="sec-projects-action">
+                    <button class="btn btn-secondary" id="expand-projects-btn" aria-expanded="false" aria-controls="secondary-projects-grid">
+                        <span>[EXPAND_DIRECTORY // VIEW_ALL_PROJECTS]</span>
+                        <svg class="btn-icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 04: AI-Themed Timeline -->
+        <section id="logs" class="timeline-section scroll-reveal" aria-labelledby="timeline-title">
+            <div class="timeline-header">
+                <div class="tag-badge">
+                    <span class="tag-dot"></span>
+                    CHRONOLOGICAL MATRIX
+                </div>
+                <h2 id="timeline-title" class="timeline-heading">
+                    System <span class="text-gradient">Activity Log</span>
+                </h2>
+                <!-- Timeline Filter Toggles -->
+                <div class="timeline-filters" role="group" aria-label="Filter timeline events">
+                    <button class="filter-btn active" data-filter="all">[ALL_EVENTS]</button>
+                    <button class="filter-btn" data-filter="work">[WORK]</button>
+                    <button class="filter-btn" data-filter="hack">[HACKATHONS]</button>
+                    <button class="filter-btn" data-filter="edu">[EDU_CERT]</button>
+                    <button class="filter-btn" data-filter="ai100">[100_DAYS_AI]</button>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Glowing Connector Line -->
+                <div class="timeline-connector-line">
+                    <div class="timeline-connector-progress"></div>
+                </div>
+
+                <div class="timeline-events-wrapper">
+                    <!-- Event 1: BuildAI Internship -->
+                    <div class="timeline-node-card" data-category="work">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">MAR 2026 – MAY 2026</span>
+                            <div class="node-tag">WORK // INTERNSHIP</div>
+                            <h3 class="node-title">AI Research Analyst — BuildAI</h3>
+                            <p class="node-description">Conducted iterative model experimentation and hyperparameter optimization workflows. Improved inference pipelines and coordinated automated workflows across 4 external company teams.</p>
+                            <details class="node-details">
+                                <summary>VIEW COMPILE DIAGNOSTICS</summary>
+                                <pre><code># Operation Coordination pipeline logs:
+Task automation completed.
+Manual operational overhead reduced by 60%.
+Stack: FastAPI, PyTorch, Supabase.</code></pre>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Event 2: VJ Hackathon Hyderabad -->
+                    <div class="timeline-node-card" data-category="hack">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">OCT 2025</span>
+                            <div class="node-tag">HACK // RANK_32</div>
+                            <h3 class="node-title">VJ Hackathon — VNRVJIET Hyderabad</h3>
+                            <p class="node-description">Selected in Top 32 teams nationwide from 5,000+ competing teams. Engineered a real-time behavioral computer vision prototype in a high-pressure 24-hour evaluation cycle.</p>
+                            <details class="node-details">
+                                <summary>VIEW RUNTIME SCHEMATIC</summary>
+                                <pre><code># Model Validation Parameters:
+Target: Gesture anomaly classification.
+Evaluation accuracy: 90% in 24 hours.
+Stack: OpenCV, Streamlit, PyTorch.</code></pre>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Event 3: MeMatdar Developers Internship -->
+                    <div class="timeline-node-card" data-category="work">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">OCT 2025 – JAN 2026</span>
+                            <div class="node-tag">WORK // INTERNSHIP</div>
+                            <h3 class="node-title">Flutter Developer Intern — MeMatdar</h3>
+                            <p class="node-description">Engineered production-ready cross-platform mobile apps using Flutter and clean architecture guidelines. Delivered sprint features 20% ahead of schedule.</p>
+                            <details class="node-details">
+                                <summary>VIEW BUILD SCHEMATIC</summary>
+                                <pre><code># Cross-platform sync diagnostics:
+State Management: Clean BLoC.
+Sync latency: Real-time Firestore sync &lt; 200ms.
+Sprint delivery velocity: 20% ahead.</code></pre>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Event 4: InnovateYou Hackathon Pune -->
+                    <div class="timeline-node-card" data-category="hack">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">FEB 2025</span>
+                            <div class="node-tag">HACK // CHAMPION</div>
+                            <h3 class="node-title">InnovateYou 24-Hour Hackathon — Pune</h3>
+                            <p class="node-description">Led the engineering team to deploy a demo-ready prototype under a strict 24-hour deadline. Recognized by industry judges for real-world business applicability and velocity.</p>
+                            <details class="node-details">
+                                <summary>VIEW PROTOTYPE METRICS</summary>
+                                <pre><code># Pune Hackathon deployment log:
+Target: Automated Document Parsing API.
+Uptime during live presentation: 100%.
+Judges Rating: Outstanding for rapid execution.</code></pre>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Event 5: Google Developer Group Workshop -->
+                    <div class="timeline-node-card" data-category="edu">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">MAR 2025</span>
+                            <div class="node-tag">CERT // WORKSHOP</div>
+                            <h3 class="node-title">GDG Systems Workshop — Hyderabad</h3>
+                            <p class="node-description">Completed intensive training led by industry Google Developer practitioners. Gained hands-on proficiency in advanced Android frameworks, Cloud deployment, and Gemini architectures.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 6: MGM University Education -->
+                    <div class="timeline-node-card" data-category="edu">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">JUN 2023 – JUN 2027</span>
+                            <div class="node-tag">EDU // ACADEMIC</div>
+                            <h3 class="node-title">BSc CS (Hons) — MGM University</h3>
+                            <p class="node-description">Dr. G.Y. Pathrikar College of CS & IT. Heavy focus on algorithmic logic, database architectures, generative models, and computer vision analytics.</p>
+                        </div>
+                    </div>
+
+                    <!-- Event 7: 100 Days of AI self learning track -->
+                    <div class="timeline-node-card" data-category="ai100">
+                        <div class="node-dot"></div>
+                        <div class="node-content">
+                            <span class="node-date">Started in June 2026</span>
+                            <div class="node-tag">LOG // 100_DAYS_OF_AI</div>
+                            <h3 class="node-title">Self-Directed AI Exploration Journey</h3>
+                            <p class="node-description">Completed a rigorous 100-day self-directed exploration path, engineering working AI pipelines and documenting progress across deep learning milestones.</p>
+                            <details class="node-details">
+                                <summary>VIEW 100-DAY LOG METRICS</summary>
+                                <div class="ai-100-progress">
+                                    <div class="day-log">
+                                        <span class="day-num">Day 01:</span>
+                                        <span class="day-title">Multi-Layer Perceptrons trained from scratch (NumPy).</span>
+                                    </div>
+                                    <div class="day-log">
+                                        <span class="day-num">Day 30:</span>
+                                        <span class="day-title">Built custom gaze-vector tracking heuristics (OpenCV).</span>
+                                    </div>
+                                    <div class="day-log">
+                                        <span class="day-num">Day 60:</span>
+                                        <span class="day-title">Constructed local RAG note query indices (FastAPI/Qdrant).</span>
+                                    </div>
+                                    <div class="day-log">
+                                        <span class="day-num">Day 100:</span>
+                                        <span class="day-title">Orchestrated event-driven Discord agent task routers.</span>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 05: Contact & Action Deck -->
+        <section id="contact" class="contact-section scroll-reveal" aria-labelledby="contact-title">
+            <div class="contact-header">
+                <div class="tag-badge">
+                    <span class="tag-dot"></span>
+                    DISPATCH INTERFACE
+                </div>
+                <h2 id="contact-title" class="contact-heading">
+                    Coordinate <span class="text-gradient">a Project</span>
+                </h2>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Left: Channels Panel -->
+                <div class="contact-channels">
+                    <!-- Email Card -->
+                    <div class="channel-card card-spotlight">
+                        <div class="card-glow"></div>
+                        <div class="channel-icon">✉️</div>
+                        <div class="channel-info">
+                            <span class="channel-label">DIRECT EMAIL</span>
+                            <a href="mailto:sohamdeshmukh801@gmail.com" class="channel-link btn-link">sohamdeshmukh801@gmail.com ➔</a>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Booking Card -->
+                    <div class="channel-card card-spotlight" id="btn-calendar-book">
+                        <div class="card-glow"></div>
+                        <div class="channel-icon">📅</div>
+                        <div class="channel-info">
+                            <span class="channel-label">CALENDAR DISPATCH</span>
+                            <button class="channel-link btn-link" id="calendar-trigger-btn">Schedule brief video coordination ➔</button>
+                        </div>
+                    </div>
+
+                    <!-- AI Agent Card -->
+                    <div class="channel-card card-spotlight" id="btn-agent-trigger">
+                        <div class="card-glow"></div>
+                        <div class="channel-icon">🤖</div>
+                        <div class="channel-info">
+                            <span class="channel-label">PROXY DELEGATE</span>
+                            <button class="channel-link btn-link">Ask AI agent to coordinate availability ➔</button>
+                        </div>
+                    </div>
+
+                    <!-- Socials & Document Actions -->
+                    <div class="channels-footer">
+                        <div class="social-badges">
+                            <a href="https://github.com/Soham801" class="social-badge" target="_blank" aria-label="Open Soham's GitHub Profile">
+                                <span>GITHUB_GIT</span>
+                            </a>
+                            <a href="https://linkedin.com/in/soham-deshmukh-95aa76288" class="social-badge" target="_blank" aria-label="Open Soham's LinkedIn Profile">
+                                <span>LINKEDIN_SYS</span>
+                            </a>
+                        </div>
+                        <a href="Soham-Resume-June-V4.pdf" class="btn btn-primary" download aria-label="Download Soham's PDF Resume">
+                            <span>DOWNLOAD_RESUME_PDF 📥</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Command Dispatch Form -->
+                <div class="contact-form-container">
+                    <form id="dispatch-form" class="dispatch-form" action="https://formspree.io/f/xoqgkgpe" method="POST">
+                        <div class="form-header" aria-hidden="true">
+                            <span class="prompt-prefix">soham@ai:~$</span> send --message
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-field">
+                                <label for="form-name">VISITOR_NAME:</label>
+                                <input type="text" id="form-name" name="name" placeholder="Enter identifier name..." required autocomplete="name">
+                            </div>
+                            <div class="form-field">
+                                <label for="form-email">VISITOR_EMAIL:</label>
+                                <input type="email" id="form-email" name="email" placeholder="Enter coordinates email..." required autocomplete="email">
+                            </div>
+                            <div class="form-field full-width">
+                                <label for="form-message">TRANSMISSION_BODY:</label>
+                                <textarea id="form-message" name="message" placeholder="Type message dispatch details..." required></textarea>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary dispatch-submit-btn" aria-label="Dispatch message">
+                            <span class="btn-text">DISPATCH_TRANSMISSION ➔</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Calendar Booking Modal Dialog (Collapsible) -->
+            <div id="calendar-modal" class="calendar-modal" aria-hidden="true" role="dialog" aria-label="Cal.com Schedule Dialog">
+                <div class="calendar-modal-content">
+                    <div class="calendar-modal-header">
+                        <span class="calendar-modal-title">CAL.COM // DISPATCH_SCHEDULER</span>
+                        <button id="calendar-close-btn" class="calendar-close-btn" aria-label="Close scheduling dialog">✕</button>
+                    </div>
+                    <div class="calendar-modal-body">
+                        <!-- Mock Interactive Scheduling Grid -->
+                        <div class="calendar-grid">
+                            <div class="calendar-days">
+                                <span class="calendar-month">JULY 2026</span>
+                                <div class="days-list">
+                                    <button class="day-btn" data-day="01">01</button>
+                                    <button class="day-btn" data-day="02">02</button>
+                                    <button class="day-btn active" data-day="03">03</button>
+                                    <button class="day-btn" data-day="04">04</button>
+                                    <button class="day-btn" data-day="05">05</button>
+                                </div>
+                            </div>
+                            <div class="calendar-times">
+                                <span class="times-title">COORDINATE TIME</span>
+                                <div class="times-list">
+                                    <button class="time-btn">10:00 AM</button>
+                                    <button class="time-btn active">02:30 PM</button>
+                                    <button class="time-btn">04:00 PM</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="calendar-confirm-btn" class="btn btn-primary calendar-confirm-btn">CONFIRM SCHEDULE INTERACTIVE</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- AI Assistant Floating Deck -->
+    <div id="ai-assistant-widget" class="assistant-widget">
+        <!-- Floating Trigger Button -->
+        <button id="assistant-trigger" class="assistant-trigger-btn" aria-label="Toggle AI Assistant interface" aria-expanded="false">
+            <span class="pulse-indicator"></span>
+            <span class="btn-icon">💬</span>
+            <span class="btn-label">SOHAM_AGENT // ONLINE</span>
+        </button>
+
+        <!-- Chat Container -->
+        <div id="assistant-chat-window" class="assistant-chat-window" aria-hidden="true" role="dialog" aria-label="AI Assistant chatbot">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <span class="pulse-indicator"></span>
+                    <span class="agent-name">SOHAM_AGENT_V1.0</span>
+                </div>
+                <button id="chat-close-btn" class="chat-close-btn" aria-label="Close chatbot dialogue">✕</button>
+            </div>
+
+            <!-- Messages Window -->
+            <div id="chat-messages-area" class="chat-messages-area">
+                <div class="message message-agent">
+                    <div class="message-bubble">
+                        Hello! I am Soham's digital agent proxy. I have access to his career logs, skills inventory, and project schematics. What parameters would you like to inspect?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Action starters chips -->
+            <div class="chat-quick-actions" role="group" aria-label="Quick question prompts">
+                <button class="action-chip" data-question="What are his core technical skills?">/skills</button>
+                <button class="action-chip" data-question="Explain his AI Cheat Detector project.">/cheat-detector</button>
+                <button class="action-chip" data-question="Tell me about his internship experiences.">/experience</button>
+                <button class="action-chip" data-question="What is his current career goal?">/future-goals</button>
+            </div>
+
+            <!-- Input area -->
+            <form id="chat-input-form" class="chat-input-form">
+                <input type="text" id="chat-user-input" class="chat-user-input" placeholder="Type a parameter query (e.g. /skills)..." autocomplete="off" aria-label="Ask Soham's AI Assistant a question">
+                <button type="submit" class="chat-submit-btn" aria-label="Send query">➔</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

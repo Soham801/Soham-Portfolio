@@ -1,0 +1,5 @@
+with open(r"c:\Users\Shubham\Desktop\Soham\Portfolio_Website\index.html", "r", encoding="utf-8") as f:
+    lines = f.readlines()
+for idx, line in enumerate(lines):
+    if "id=\"logs\"" in line or "id='logs'" in line:
+        print(f"Line {idx+1}: {line.strip()}")
