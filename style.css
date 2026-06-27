@@ -2463,6 +2463,37 @@ body.executive-mode .message-user .message-bubble {
     font-family: var(--font-mono);
 }
 
+.dispatch-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.dispatch-status-container {
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+}
+
+.dispatch-status {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.dispatch-status.status-loading {
+    color: var(--accent-cyan);
+}
+
+.dispatch-status.status-success {
+    color: var(--status-success);
+}
+
+.dispatch-status.status-error {
+    color: var(--status-error);
+}
+
 /* ==========================================================================
    CALENDAR BOOKING DIALOG (MODAL)
    ========================================================================== */

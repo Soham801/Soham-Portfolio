@@ -808,23 +808,137 @@ function initializeContactSection() {
         });
     }
 
-    // 3. Dispatch form submit feedback
+    // 3. Dispatch form submit feedback (AJAX Formspree with validation & spam filtering)
     if (dispatchForm && submitBtn) {
-        dispatchForm.addEventListener('submit', () => {
-            const btnText = submitBtn.querySelector('.btn-text');
-            if (btnText) {
-                btnText.textContent = 'DISPATCHING TRANSMISSION...';
-                submitBtn.classList.add('animate-pulse');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const statusEl = document.getElementById('dispatch-status');
+        
+        let lastSubmissionTime = 0;
+        
+        dispatchForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Honeypot validation
+            const honeypot = document.getElementById('form-honeypot');
+            if (honeypot && honeypot.value.trim() !== '') {
+                // Silent drop for automated bots
+                if (statusEl) {
+                    statusEl.className = 'dispatch-status status-success';
+                    statusEl.textContent = '[OK] Transmission completed successfully.';
+                }
+                dispatchForm.reset();
+                return;
             }
             
-            setTimeout(() => {
-                if (btnText) {
-                    btnText.textContent = 'TRANSMISSION DISPATCHED ✓';
-                    submitBtn.classList.remove('animate-pulse');
-                    submitBtn.style.background = 'linear-gradient(135deg, #27C93F 0%, #1E822D 100%)';
-                    submitBtn.style.color = '#FFFFFF';
+            // Client-side rate limiting (30 seconds restriction)
+            const now = Date.now();
+            if (now - lastSubmissionTime < 30000) {
+                if (statusEl) {
+                    statusEl.className = 'dispatch-status status-error';
+                    statusEl.textContent = '[ERR] Transmission rate limit active. Please wait 30s.';
                 }
-            }, 1000);
+                return;
+            }
+            
+            // Read input values
+            const nameVal = document.getElementById('form-name').value.trim();
+            const emailVal = document.getElementById('form-email').value.trim();
+            const messageVal = document.getElementById('form-message').value.trim();
+            
+            // Empty submissions validation
+            if (!nameVal || !emailVal || !messageVal) {
+                if (statusEl) {
+                    statusEl.className = 'dispatch-status status-error';
+                    statusEl.textContent = '[ERR] Missing required fields.';
+                }
+                return;
+            }
+            
+            // Email format check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailVal)) {
+                if (statusEl) {
+                    statusEl.className = 'dispatch-status status-error';
+                    statusEl.textContent = '[ERR] Invalid email address.';
+                }
+                return;
+            }
+            
+            // Lock submit triggers and configure loading state
+            submitBtn.disabled = true;
+            submitBtn.classList.add('animate-pulse');
+            if (btnText) btnText.textContent = 'DISPATCHING...';
+            
+            if (statusEl) {
+                statusEl.className = 'dispatch-status status-loading';
+                statusEl.textContent = '[WAIT] Transmitting secure message...';
+            }
+            
+            // Collect Form data parameters
+            const formData = new FormData(dispatchForm);
+            formData.append('timestamp', new Date().toISOString());
+            
+            try {
+                const response = await fetch(dispatchForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    lastSubmissionTime = Date.now();
+                    
+                    if (statusEl) {
+                        statusEl.className = 'dispatch-status status-success';
+                        statusEl.textContent = '[OK] Transmission completed successfully.';
+                    }
+                    
+                    if (btnText) {
+                        btnText.textContent = 'TRANSMISSION DISPATCHED ✓';
+                    }
+                    
+                    const originalBackground = submitBtn.style.background;
+                    const originalColor = submitBtn.style.color;
+                    submitBtn.style.background = 'linear-gradient(135deg, var(--status-success) 0%, #1E822D 100%)';
+                    submitBtn.style.color = '#FFFFFF';
+                    
+                    dispatchForm.reset();
+                    
+                    // Re-enable interface controls after display timer
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('animate-pulse');
+                        if (btnText) btnText.textContent = 'DISPATCH_TRANSMISSION ➔';
+                        submitBtn.style.background = originalBackground;
+                        submitBtn.style.color = originalColor;
+                    }, 4000);
+                    
+                } else {
+                    throw new Error('Formspree returned failure status');
+                }
+            } catch (err) {
+                if (statusEl) {
+                    statusEl.className = 'dispatch-status status-error';
+                    statusEl.textContent = '[ERR] Transmission failed. Please retry.';
+                }
+                
+                if (btnText) btnText.textContent = 'DISPATCH_FAILED ✖';
+                
+                const originalBackground = submitBtn.style.background;
+                const originalColor = submitBtn.style.color;
+                submitBtn.style.background = 'linear-gradient(135deg, var(--status-error) 0%, #B81D1D 100%)';
+                submitBtn.style.color = '#FFFFFF';
+                
+                setTimeout(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('animate-pulse');
+                    if (btnText) btnText.textContent = 'DISPATCH_TRANSMISSION ➔';
+                    submitBtn.style.background = originalBackground;
+                    submitBtn.style.color = originalColor;
+                }, 3000);
+            }
         });
     }
 

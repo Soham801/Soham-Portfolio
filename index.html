@@ -1046,6 +1046,11 @@ Judges Rating: Outstanding for rapid execution.</code></pre>
                             <span class="prompt-prefix">soham@ai:~$</span> send --message
                         </div>
                         <div class="form-grid">
+                            <!-- Anti-spam Honeypot Field -->
+                            <div style="display: none;">
+                                <label for="form-honeypot">Bot check field - leave empty</label>
+                                <input type="text" id="form-honeypot" name="_gotcha" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="form-field">
                                 <label for="form-name">VISITOR_NAME:</label>
                                 <input type="text" id="form-name" name="name" placeholder="Enter identifier name..." required autocomplete="name">
@@ -1058,6 +1063,10 @@ Judges Rating: Outstanding for rapid execution.</code></pre>
                                 <label for="form-message">TRANSMISSION_BODY:</label>
                                 <textarea id="form-message" name="message" placeholder="Type message dispatch details..." required></textarea>
                             </div>
+                        </div>
+                        <!-- Terminal-themed status output logs -->
+                        <div class="dispatch-status-container" aria-live="polite" role="status">
+                            <div id="dispatch-status" class="dispatch-status"></div>
                         </div>
                         <button type="submit" class="btn btn-primary dispatch-submit-btn" aria-label="Dispatch message">
                             <span class="btn-text">DISPATCH_TRANSMISSION ➔</span>
